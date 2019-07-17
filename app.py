@@ -1,9 +1,9 @@
-from logging.handlers import RotatingFileHandler
+#from logging.handlers import RotatingFileHandler
 from flask import request
 from flask import Flask
 from influxdb import InfluxDBClient
-import logging
-
+#import logging
+'''
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s : %(message)s')
@@ -13,7 +13,7 @@ file_handler = RotatingFileHandler("app.log", maxBytes=2000, backupCount=10)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
-logger.info('user has logged in')
+logger.info('user has logged in')'''
 
 app = Flask(__name__)
 client: InfluxDBClient = InfluxDBClient(host='localhost', port=8086, database='indb')
@@ -52,7 +52,7 @@ def sensors_data():
         client.write_points(json_body)
 
         resp = 'inserted!!!!!!'
-        logger.info('user has inserted into sensors_data')
+        #logger.info('user has inserted into sensors_data')
 
         return resp
 
@@ -89,7 +89,7 @@ def range_dep():
         client.write_points(json_body)
 
         resp = 'inserted!!!!!!'
-        logger.info('user has inserted into range_dep')
+        #logger.info('user has inserted into range_dep')
         return resp
 
     except Exception as e:
