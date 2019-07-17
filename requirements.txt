@@ -1,5 +1,5 @@
 Flask
-from influxdb import InfluxDBClient
-import logging
-from logging.handlers import RotatingFileHandler
-import uwsgi
+influxdb
+logging
+RotatingFileHandler
+uwsgi
