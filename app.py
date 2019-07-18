@@ -18,10 +18,6 @@ logger.info('user has logged in')
 app = Flask(__name__)
 client: InfluxDBClient = InfluxDBClient(host='localhost', port=8086, database='indb')
 
-@app.route('/', methods=['GET'])
-def index():
-    resp='connected'
-    return resp
 @app.route('/sensors_data', methods=['POST'])
 def sensors_data():
     try:
