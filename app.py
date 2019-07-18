@@ -27,7 +27,7 @@ def sensors_data():
         _fire_comb = _json['fire_comb']
         _gas_id = _json['gas_id']
         _id = _json['id']
-         _table = _json['table']
+        _table = _json['table']
         _ir_range = _json['ir_range']
         _light_dep = _json['light_dep']
 
