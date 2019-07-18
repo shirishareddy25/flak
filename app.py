@@ -29,10 +29,13 @@ def sensors_data():
         _fire_comb = _json['fire_comb']
         _gas_id = _json['gas_id']
         _id = _json['id']
+         _table = _json['table']
+        _ir_range = _json['ir_range']
+        _light_dep = _json['light_dep']
 
         json_body = [
             {
-                "measurement": _table,
+                "measurement": "sensors",
                 "tags": {
 
                     "temperature": _temp,
@@ -49,28 +52,9 @@ def sensors_data():
             }
         ]
         client.write_points(json_body)
-
-        resp = 'inserted!!!!!!'
-        #logger.info('user has inserted into sensors_data')
-
-        return resp
-
-    except Exception as e:
-        print(e)
-
-@app.route('/range_dep', methods=['POST'])
-def range_dep():
-    try:
-        _json = request.json
-
-        _table = _json['table']
-        _ir_range = _json['ir_range']
-        _light_dep = _json['light_dep']
-        _id = _json['id']
-
         json_body = [
             {
-                "measurement": _table,
+                "measurement": "ir_light",
                 "tags": {
 
                     "ir_range": _ir_range,
@@ -81,18 +65,17 @@ def range_dep():
                     {
                         "id": _id,
                     }
-
-
-            }
-        ]
         client.write_points(json_body)
 
         resp = 'inserted!!!!!!'
-        #logger.info('user has inserted into range_dep')
+        #logger.info('user has inserted into sensors_data')
+
         return resp
 
     except Exception as e:
         print(e)
+
+
 '''
 @app.route('/select/<id>', methods=['GET'])
 def select(id):
